@@ -1,6 +1,6 @@
 # Conversational AI Chatbot with Contextual Memory
 
-An AI-powered conversational chatbot built using **LangChain**, **Streamlit**, and a local **Mistral LLM (via Ollama)**.
+An AI-powered conversational chatbot built using **LangChain**, **Streamlit**, and a local **Phi-3 Mini LLM (via Ollama)**.
 The system enables human-like, context-aware interactions and can also analyze uploaded documents.
 The entire project runs **offline** with **zero API cost**, ensuring privacy and accessibility.
 
@@ -10,7 +10,7 @@ The entire project runs **offline** with **zero API cost**, ensuring privacy and
 
 - Context-aware multi-turn conversations
 - Memory management using **ChatMessageHistory**
-- Local LLM integration using **Mistral via Ollama**
+- Local LLM integration using **Phi-3 Mini via Ollama**
 - Upload and analyze **PDF, TXT, and CSV** files
 - Streamlit-based interactive UI
 - Fully offline execution (no paid APIs)
@@ -22,7 +22,7 @@ The entire project runs **offline** with **zero API cost**, ensuring privacy and
 - **Python**
 - **LangChain**
 - **Streamlit**
-- **Ollama (Mistral Model)**
+- **Ollama (Phi-3 Mini Model)**
 - **Pandas**
 - **PyPDF**
 
@@ -73,7 +73,7 @@ Install Ollama from: [https://ollama.com](https://ollama.com)
 Then run:
 
 ```
-ollama pull mistral
+ollama pull Phi-3 Mini
 ```
 
 ---
