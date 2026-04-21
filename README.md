@@ -10,7 +10,7 @@ The entire project runs **offline** with **zero API cost**, ensuring privacy and
 
 - Context-aware multi-turn conversations
 - Memory management using **ChatMessageHistory**
-- Local LLM integration using **Phi-3 Mini via Ollama**
+- Local LLM integration using **Mistral via Ollama**
 - Upload and analyze **PDF, TXT, and CSV** files
 - Streamlit-based interactive UI
 - Fully offline execution (no paid APIs)
@@ -22,7 +22,7 @@ The entire project runs **offline** with **zero API cost**, ensuring privacy and
 - **Python**
 - **LangChain**
 - **Streamlit**
-- **Ollama (Phi-3 Mini Model)**
+- **Ollama (Mistral Model)**
 - **Pandas**
 - **PyPDF**
 
