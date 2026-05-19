@@ -2,15 +2,11 @@ from groq import Groq
 from langchain_community.chat_message_histories import ChatMessageHistory
 import pandas as pd
 from pypdf import PdfReader
-from dotenv import load_dotenv
-import os
+import streamlit as st
 
-# Load environment variables
-load_dotenv()
-
-# Create Groq client
+# Create Groq client using Streamlit secrets
 client = Groq(
-    api_key=os.getenv("GROQ_API_KEY")
+    api_key=st.secrets["GROQ_API_KEY"]
 )
 
 # Memory
@@ -26,18 +22,20 @@ def get_response(user_input: str) -> str:
     messages = []
 
     for msg in chat_history.messages:
+
         if msg.type == "human":
             messages.append({
                 "role": "user",
                 "content": msg.content
             })
+
         else:
             messages.append({
                 "role": "assistant",
                 "content": msg.content
             })
 
-    # Generate response
+    # Generate AI response
     completion = client.chat.completions.create(
         model="llama-3.1-8b-instant",
         messages=messages,
@@ -57,10 +55,12 @@ def get_response(user_input: str) -> str:
 def read_file(uploaded_file):
 
     if uploaded_file.name.endswith(".pdf"):
+
         reader = PdfReader(uploaded_file)
         text = ""
 
         for page in reader.pages:
+
             page_text = page.extract_text()
 
             if page_text:
@@ -69,13 +69,17 @@ def read_file(uploaded_file):
         return text[:5000]
 
     elif uploaded_file.name.endswith(".txt"):
+
         return uploaded_file.read().decode("utf-8")[:5000]
 
     elif uploaded_file.name.endswith(".csv"):
+
         df = pd.read_csv(uploaded_file)
+
         return df.to_string()[:5000]
 
     else:
+
         return "Unsupported file type"
 
 
